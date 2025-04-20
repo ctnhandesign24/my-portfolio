@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Feedback</title>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/feedback.js"></script>
+    <link rel="stylesheet" href="css/feedback.css">
+</head>
+
+<body>
+    <header>
+        <div id="header1">
+            <a href="index.html">
+                <div id="logo">
+                    <img src="img/Menu_Logo/bethesda_studio_logo.png" alt="" valign="bottom">
+                </div>
+            </a>
+            <ul id="blackboard">
+                <li><input type="text" name="search" value="" placeholder="Search games, news, etc."></li>
+                <li style="filter:invert(1)"><img src="img/Menu_Icon/help_icon.png" alt="Help"
+                        onclick="feedback_click()"></li>
+                <li style="filter:invert(1)"> <a href="dangnhap.html"> <img src="img/Menu_Icon/char_icon.png"
+                            alt="Char"></a></li>
+            </ul>
+    </header>
+
+    <section>
+
+        <div id="banner">
+            <div class="banner">
+                <img src="img/banner/banner1.jpg" alt="Bethesda Banner">
+                <img src="img/banner/banner2.jpg" alt="Bethesda Banner">
+                <img src="img/banner/banner3.jpg" alt="Bethesda Banner">
+                <img src="img/banner/banner4.jpg" alt="Bethesda Banner">
+            </div>
+            <div class="banner-on"></div>
+        </div>
+
+        <!-- Phần bắt đầu cho Popup Feedback-->
+        <center>
+            <form action="" method="get" id="form_popup" onsubmit="return formvalid()">
+                <table id="table_popup">
+                    <tr>
+                        <td>
+                            <div id="x_button" onclick="x_button_click()">+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table id="table_popup_horizontal">
+                                <tr>
+                                    <td class="table_col_horizontal" colspan="2">
+                                        <table id="table_popup1">
+                                            <tr>
+                                                <td><img src="img/Menu_Logo/bethesda_studio_logo.png" alt=""></td>
+                                                <td colspan="2">
+                                                    <p>Your Feedback</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table_col_horizontal">
+                                        <table id="table_popup2">
+                                            <tr>
+                                                <td colspan="3">
+                                                    <p>We would like your feedback to improve our website.</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <p>What is your opinion of this page?</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <img src="img/SVG/SVGs/angry.svg" alt="" id="icon1"
+                                                        onclick="icon1_click()">
+                                                    <img src="img/SVG/SVGs/like.svg" alt="" id="icon2"
+                                                        onclick="icon2_click()">
+                                                    <img src="img/SVG/SVGs/ya.svg" alt="" id="icon3"
+                                                        onclick="icon3_click()">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table id="table_popup3">
+                                            <tr>
+                                                <td colspan="3">
+                                                    <p>Please select your feedback category below:</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <button id="button1" value="">Suggestion</button>
+                                                    <button id="button2" value="">Something is not quite right</button>
+                                                    <button id="button3" value="">Compliment</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td class="table_col_horizontal">
+                                        <table id="table_popup4">
+                                            <tr>
+                                                <td colspan="3">
+                                                    <p>Please leave your email here, we can contact you later: <br> (You
+                                                        can
+                                                        leave
+                                                        it alone if
+                                                        you don't want to)</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" name="" id="email" placeholder="Email Address">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td id="email_wrong"></td>
+                                            </tr>
+                                            <td colspan="3">
+                                                <p>Please leave your feedback below:</p>
+                                            </td>
+                                            <tr>
+                                                <td>
+                                                    <textarea name="" id="feedback" cols="30" rows=4></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table_col_horizontal" colspan="2">
+                                        <table id="table_popup5">
+                                            <tr>
+                                                <td colspan="3">
+                                                    <input type="submit" name="" id="submit" value="Send">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+        </center>
+        <!-- Phần kết thúc cho Popup Feedback-->
+    </section>
+    <footer>
+        <div id="footer">
+            <div id="footer1">
+                <!-- Footer Table 1-->
+                <table class="footer1-content">
+                    <tr>
+                        <th colspan="2">EXPLORE</th>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Home</a></td>
+                        <td><a href="#">News</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Games</a></td>
+                        <td><a href="#">Playtest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Mods</a></td>
+                        <td><a href="#">Studios</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Community</a></td>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <!-- Footer Table 2-->
+                <table class="footer1-content">
+                    <tr>
+                        <th colspan="2">SUPPORT</th>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Support Center</a></td>
+                        <td><a href="#">Status</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Manual and Safety Docs</a></td>
+                        <td><a href="#"></a></td>
+                    </tr>
+                </table>
+
+                <!-- Footer Table 3-->
+                <table class="footer1-content">
+                    <tr>
+                        <th colspan="2">LEGAL</th>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Terms of Service</a></td>
+                        <td><a href="#">Code of Conduct</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">End User License Agreements</a></td>
+                        <td><a href="#">Contact</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Privacy Policy</a></td>
+                        <td><a href="#">Corporate</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Legal Information</a></td>
+                        <td><a href="#">Careers</a></td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div id="footer2">
+                <div class="contact">
+                    <img class="logofooter2" src="img/Menu_Logo/bethesda_studio_logo.png" alt="Logo">
+                    <p>Contact Us</p>
+                    <p>Website Feedback</p>
+                    <ul>
+                        <li><img src="img/Linked/facebook.png" alt="facebook_logo"></li>
+                        <li><img src="img/Linked/twitter.jpg" alt="twitter"></li>
+                        <li><img src="img/Linked/youtube.png" alt="youtube"></li>
+                        <li><img src="img/Linked/instagram.jpg" alt="instagram"></li>
+
+                    </ul>
+                </div>
+                <p>© 2019 Bethesda Softworks LLC, a ZeniMax Media company. Trademarks belong to their respective owners.
+                    All
+                    Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

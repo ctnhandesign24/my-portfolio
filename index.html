@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="vn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Trang chu</title>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/feedback.js"></script>
+</head>
+
+<body>
+    <a href="#blackboard">
+        <div id="up">
+            <div class="up"></div>
+        </div>
+    </a>
+    <a href="#footer">
+        <div id="down">
+            <div class="down"></div>
+        </div>
+    </a>
+    <!--trang chu-->
+    <div id="container">
+
+        <!--header-->
+        <div id="header">
+
+            <!--Header1-->
+            <div id="header1">
+                <a href="index.html">
+                    <div id="logo">
+                        <img src="img/Menu_Logo/bethesda_studio_logo.png" alt="" valign="bottom">
+                    </div>
+                </a>
+                <ul id="blackboard">
+                    <li><input type="text" name="search" value="" placeholder="Search games, news, etc."></li>
+                    <li style="filter:invert(1)"><img src="img/Menu_Icon/help_icon.png" alt="Help"
+                            onclick="feedback_click()"></li>
+                    <li style="filter:invert(1)"><img src="img/Menu_Icon/feedback_icon.png" alt="Help"
+                            onclick="feedback_click()"></li>
+                    <li style="filter:invert(1)"><img src="img/Menu_Icon/char_icon.png" alt="Char"
+                            onclick="user_click()">
+                    </li>
+                </ul>
+
+            </div>
+
+            <!--Header2-->
+            <div id="header2">
+                <!--User popup-->
+                <center>
+                    <div id="user_popup">
+                        <table id="user_popup_table">
+                            <tr>
+                                <td id="user_popup_login" class="user_button">LOG IN</td>
+                                <td id="x_user_button" onclick="x_user_button_click()">x</td>
+                                <td id="user_popup_signin" class="user_button">SIGN IN</td>
+                            </tr>
+                        </table>
+                    </div>
+                </center>
+                <!-- Phần bắt đầu cho Popup Feedback-->
+                <center>
+                    <form action="" method="GET" onsubmit="return form_success()" id="form_success">
+                        <table id="table_success">
+                            <tr>
+                                <td>
+                                    <p id="username_login"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="submit" id="submit_success" class="td_signin" value="Great!">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </center>
+                <center>
+                    <form action="" method="get" id="form_popup" onsubmit="return formvalid()">
+                        <table id="table_popup">
+                            <tr>
+                                <td>
+                                    <div id="x_button" onclick="x_button_click()">
+                                        <p>+</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table id="table_popup_horizontal">
+                                        <tr>
+                                            <td class="table_col_horizontal" colspan="2">
+                                                <table id="table_popup1">
+                                                    <tr>
+                                                        <td><img src="img/Menu_Logo/bethesda_studio_logo.png" alt="">
+                                                        </td>
+                                                        <td>
+                                                            <p>Your Feedback</p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table_col_horizontal">
+                                                <table id="table_popup2">
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <p>We would like your feedback to improve our website.</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <p>What is your opinion of this page?</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <img src="img/SVG/SVGs/angry.svg" alt="" id="icon1"
+                                                                class="icon">
+                                                            <img src="img/SVG/SVGs/like.svg" alt="" id="icon2"
+                                                                class="icon">
+                                                            <img src="img/SVG/SVGs/ya.svg" alt="" id="icon3"
+                                                                class="icon">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="opinion_wrong"></td>
+                                                    </tr>
+                                                </table>
+                                                <table id="table_popup3">
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <p>Please select your feedback category below:</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <button id="button1" class="button"
+                                                                value="">Suggestion</button>
+                                                            <button id="button2" class="button" value="">Something is
+                                                                not quite right</button>
+                                                            <button id="button3" class="button"
+                                                                value="">Compliment</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <p id="feedback_category_wrong"
+                                                                style="text-align: center; width: 100%;"></p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td class="table_col_horizontal">
+                                                <table id="table_popup4">
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <p>Please leave your email here, we can contact you later:
+                                                                <br> (You
+                                                                can
+                                                                leave
+                                                                it alone if
+                                                                you don't want to)</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="" id="email"
+                                                                placeholder="Email Address">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="email_wrong"></td>
+                                                    </tr>
+                                                    <td colspan="3">
+                                                        <p>Please leave your feedback below:</p>
+                                                    </td>
+                                                    <tr>
+                                                        <td id="feedback_wrong"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <textarea name="" id="feedback" cols="30" rows=5></textarea>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table_col_horizontal" colspan="2">
+                                                <table id="table_popup5">
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <input type="submit" name="" id="submit" value="Send">
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </form>
+                </center>
+                <!-- Phần kết thúc cho Popup Feedback-->
+
+                <!--Menu-->
+                <div id="menu">
+                    <ul>
+                        <a href="#body2" style="text-decoration: none;">
+                            <li>
+                                <p>NEWS</p>
+                            </li>
+                        </a>
+                        <li>
+                            <p>GAME <span style="font-size: 14px">▼</span></p>
+                            <ul class="menu1">
+                                <a href="tranggame.html">
+                                    <li>
+                                        <img src="img/Game_Icon/GameIcon_Dishonored2.png" alt="dishonored2 icon Icon">
+                                        <p>Dishonored 2</p>
+                                    </li>
+                                </a>
+                                <a href="tranggame.html">
+                                    <li>
+                                        <img src="img/Game_Icon/GameIcon_Doom.png" alt="Doom Eternal Icon">
+                                        <p>Doom 3</p>
+                                    </li>
+                                </a>
+                                <a href="tranggame.html">
+                                    <li>
+                                        <img src="img/Game_Icon/GameIcon_Prey.png" alt="Prey Icon Icon">
+                                        <p>Prey</p>
+                                    </li>
+                                </a>
+                                <a href="tranggame.html">
+                                    <li>
+                                        <img src="img/Game_Icon/GameIcon_Fallout4.png" alt="Fallout 4 Icon">
+                                        <p>Fallout 4</p>
+                                    </li>
+                                </a>
+                                <a href="tranggame.html">
+                                    <li>
+                                        <img src="img/Game_Icon/GameIcon_Quake4.png" alt="Quake 4 Icon">
+                                        <p>Q.U.A.K.E 4</p>
+                                    </li>
+                                </a>
+                                <a href="tranggame.html">
+                                    <li>
+                                        <img src="img/Game_Icon/GameIcon_Rage2.png" alt="Rage 2 Icon">
+                                        <p>Rage 2</p>
+                                    </li>
+                                </a>
+                                <a href="tranggame.html">
+                                    <li>
+                                        <img src="img/Game_Icon/GameIcon_Skyrim.png" alt="TES: SKyrim Icon">
+                                        <p>TES: Skyrim</p>
+                                    </li>
+                                </a>
+                                <a href="tranggame.html">
+                                    <li>
+                                        <img src="img/Game_Icon/GameIcon_TheEvilWithin.png" alt="The Evil Within Icon">
+                                        <p>The Evil Within</p>
+                                    </li>
+                                </a>
+                                <a href="tranggame.html">
+                                    <li>
+                                        <img src="img/Game_Icon/GameIcon_Wolfenstein.png" alt="Wolfenstein Icon">
+                                        <p>Wolfenstein 2</p>
+                                    </li>
+                                </a>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <p>SUPPORT</p>
+                        </li>
+                        <li>
+                            <p>COMMUNITY</p>
+                        </li>
+                        <li>
+                            <p>ABOUT</p>
+                        </li>
+                    </ul>
+                </div>
+                <div id="banner">
+                    <div class="banner">
+                        <img src="img/banner/banner1.jpg" alt="Bethesda Banner">
+                        <img src="img/banner/banner2.jpg" alt="Bethesda Banner">
+                        <img src="img/banner/banner3.jpg" alt="Bethesda Banner">
+                        <img src="img/banner/banner4.jpg" alt="Bethesda Banner">
+                    </div>
+                    <div class="banner-on"></div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <!--content-->
+        <div id="body1">
+
+            <div id="tieude1">
+                <h1>FEATURED GAMES
+                    <p>The more you play with us, The bigger we get!</p>
+                </h1>
+            </div>
+            <!--Noi dung quan trong-->
+            <div id="noidung1">
+
+                <div class="hinh1">
+                    <img src="img/Games/skyrim.jpg" alt="Skyrim">
+                    <div class="logo1">
+                        <img src="img/Games_Logo/skyrim_logo.png" alt="Skyrim Logo">
+                        <div id="" class="para">
+                            <p class="para1">NEWS</p>
+                            <p class="para2">FORUM</p>
+                            <p class="para3">BUY</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hinh1">
+                    <img src="img/Games/rage2.jpg" alt="">
+                    <div class="logo1">
+                        <img src="img/Games_Logo/rage_2_logo.png" alt="Rage 2 Logo">
+                        <div id="" class="para">
+                            <p class="para1">NEWS</p>
+                            <p class="para2">FORUM</p>
+                            <p class="para3">BUY</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hinh1">
+                    <img src="img/Games/wolfenstein 2.jpg" alt="">
+                    <div class="logo1">
+                        <img src="img/Games_Logo/wolfenstein_2_logo.png" alt="wolfenstein 2 Logo">
+                        <div id="" class="para">
+                            <p class="para1">NEWS</p>
+                            <p class="para2">FORUM</p>
+                            <p class="para3">BUY</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hinh1">
+                    <img src="img/Games/fallout4.jpg" alt="Skyrim">
+                    <div class="logo1">
+                        <img src="img/Games_Logo/fallout_4_logo.png" alt="Fall Out 4 Logo">
+                        <div id="" class="para">
+                            <p class="para1">NEWS</p>
+                            <p class="para2">FORUM</p>
+                            <p class="para3">BUY</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hinh1">
+                    <img src="img/Games/dishonored2.jpg" alt="">
+                    <div class="logo1">
+                        <img src="img/Games_Logo/dishonored_2_logo.png" alt="Dishonored 2 Logo">
+                        <div id="" class="para">
+                            <p class="para1">NEWS</p>
+                            <p class="para2">FORUM</p>
+                            <p class="para3">BUY</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hinh1">
+                    <img src="img/Games/prey.jpg" alt="">
+                    <div class="logo1">
+                        <img src="img/Games_Logo/prey_logo.png" alt="Prey Logo">
+                        <div id="" class="para">
+                            <p class="para1">NEWS</p>
+                            <p class="para2">FORUM</p>
+                            <p class="para3">BUY</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="more">
+                <p>...</p>
+            </div>
+        </div>
+
+        <div id="body1-5">
+            <img src="img/banner/banner6.jpg" alt="Bethesda Banner">
+            <div id="para1-5">
+                <video src="video/RAGE2-trailer.mp4" controls preload="metadata"></video>
+                <h1>BUY NOW</h1>
+                <p>Go anywhere, shoot anything.</p>
+                <h2>RAGE 2</h2>
+            </div>
+        </div>
+
+        <div id="body2">
+
+            <div id="tieude1">
+                <h1> FEATURED NEWS
+                    <p>News, features, videos & more!</p>
+                </h1>
+            </div>
+            <!--Noi dung quan trong-->
+            <div id="noidung2">
+
+                <div class="hinh2-1">
+                    <img src="img/News/news_doom_eternal.jpg" alt="News Doom Eternal">
+                    <div class="para2-1"
+                        style="background: linear-gradient(to top, rgb(60, 87, 48),rgba(0,0,0,0), rgba(33, 105, 51,0))">
+                        <p><span style="font-size:12px">≣ NEWS </span><br>
+                            <span style="font-size:18px; font-family: tradegothic-lt-b;">Doom Eternal - The Slayer
+                                Club</span><br>
+                            <span style="font-size:16px">MAY 9, 2019</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="hinh2-2">
+                    <img src="img/News/news_tes_online.jpg" alt="News TES Online">
+                    <div class="para2-2"
+                        style="background:linear-gradient(to top, rgb(253, 183, 104),rgba(0,0,0,0), rgba(0,0,0,0))">
+                        <p><span style="font-size:12px">≣ NEWS </span><br>
+                            <span style="font-size:18px; font-family: tradegothic-lt-b;">TES Online - Time To
+                                Jump</span><br>
+                            <span style="font-size:16px">MAY 9, 2019</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="hinh2-2">
+                    <img src="img/News/news_wolfenstein_youngblood.jpg" alt="News Wolfenstein">
+                    <div class="para2-2"
+                        style="background:linear-gradient(to top, rgb(52, 66, 112),rgba(0,0,0,0),rgba(0,0,0,0))">
+                        <p><span style="font-size:12px">≣ NEWS </span><br>
+                            <span style="font-size:18px; font-family: tradegothic-lt-b;">Wolfenstein Youngblood -
+                                Revolutions</span><br>
+                            <span style="font-size:16px">MAY 9, 2019</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="hinh2-2">
+                    <img src="img/News/news_prey.jpg" alt="News Prey">
+                    <div class="para2-2"
+                        style="background:linear-gradient(to top, rgb(0, 0, 88),rgba(0,0,0,0), rgba(0,0,0,0))">
+                        <p><span style="font-size:12px">≣ NEWS </span><br>
+                            <span style="font-size:18px; font-family: tradegothic-lt-b;">Prey: Mooncrash's - New Blood
+                                Moon
+                                Update</span><br>
+                            <span style="font-size:16px">MAY 9, 2019</span>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="hinh2-2">
+                    <img src="img/News/news_fallout4.jpg" alt="News Fallout 4">
+                    <div class="para2-2"
+                        style="background:linear-gradient(to top, rgb(165, 122, 42),rgba(0,0,0,0),rgba(0,0,0,0))">
+                        <p><span style="font-size:12px">≣ NEWS </span><br>
+                            <span style="font-size:18px; font-family: tradegothic-lt-b;">Fallout 4 - May Features
+                                Mod</span><br>
+                            <span style="font-size:16px">MAY 9, 2019</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="hinh2-1">
+                    <img src="img/News/news_rage_2.jpg" alt="News Rage 2">
+                    <div class="para2-1"
+                        style="background: linear-gradient(to top, orange,rgba(0,0,0,0), rgba(0,0,0,0))">
+                        <p><span style="font-size:12px">≣ NEWS </span><br>
+                            <span style="font-size:18px; font-family: tradegothic-lt-b;">Rage 2 - Lauch Day Tips &
+                                Tricks</span><br>
+                            <span style="font-size:16px">MAY 9, 2019</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="more">
+                <p>...</p>
+            </div>
+        </div>
+
+        <div id="body2-5">
+            <img src="img/Footer/banner2.jpg" alt="Bethesda Banner">
+            <div id="para2-5">
+                <img src="img/Footer/prize1.png" alt="" id="para2-51">
+                <img src="img/Footer/prize2.png" alt="" id="para2-52">
+                <img src="img/Footer/prize3.png" alt="" id="para2-53">
+
+            </div>
+        </div>
+    </div>
+
+    <!--footer-->
+    <div id="footer">
+        <div id="footer1">
+            <!-- Footer Table 1-->
+            <table class="footer1-content">
+                <tr>
+                    <th colspan="2">EXPLORE</th>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Home</a></td>
+                    <td><a href="#">News</a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Games</a></td>
+                    <td><a href="#">Playtest</a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Mods</a></td>
+                    <td><a href="#">Studios</a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Community</a></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <!-- Footer Table 2-->
+            <table class="footer1-content">
+                <tr>
+                    <th colspan="2">MEMBER </th>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Cao Thanh Nhan</a></td>
+                    <td><a href="#">B18016</a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Le Thao Nguyen</a></td>
+                    <td><a href="#">B18002</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Duong Thi Cam Thu</a></td>
+                    <td><a href="#">B18010</a></td>
+                </tr>
+            </table>
+
+            <!-- Footer Table 3-->
+            <table class="footer1-content">
+                <tr>
+                    <th colspan="2">LEGAL</th>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Terms of Service</a></td>
+                    <td><a href="#">Code of Conduct</a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="#">End User License Agreements</a></td>
+                    <td><a href="#">Contact</a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Privacy Policy</a></td>
+                    <td><a href="#">Corporate</a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Legal Information</a></td>
+                    <td><a href="#">Careers</a></td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div id="footer2">
+            <div class="contact">
+                <div id="logofooter">
+                    <img src="img/Footer/footer1.png" alt="logo" class="logofooter2">
+                </div>
+                <p>Contact Us</p>
+                <p>Website Feedback</p>
+                <ul>
+                    <li><img src="img/Linked/facebook.png" alt="facebook_logo"></li>
+                    <li><img src="img/Linked/twitter.jpg" alt="twitter"></li>
+                    <li><img src="img/Linked/youtube.png" alt="youtube"></li>
+                    <li><img src="img/Linked/instagram.jpg" alt="instagram"></li>
+
+                </ul>
+            </div>
+            <p>© 2019 Bethesda Softworks LLC, a ZeniMax Media company. Trademarks belong to their respective owners. All
+                Rights Reserved.</p>
+        </div>
+    </div>
+    <center>
+        <div id="member">
+            <table class="footer1-content">
+                <tr>
+                    <th colspan="2">MEMBER </th>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Cao Thanh Nhan</a></td>
+                    <td><a href="#">B18016</a></td>
+                </tr>
+
+                <tr>
+                    <td><a href="#">Le Thao Nguyen</a></td>
+                    <td><a href="#">B18002</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Duong Thi Cam Thu</a></td>
+                    <td><a href="#">B18010</a></td>
+                </tr>
+            </table>
+        </div>
+    </center>
+</body>
+
+</html>

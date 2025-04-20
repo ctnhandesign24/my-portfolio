@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/dangky.css">
+    <title>Dangky</title>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/dangky.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="header1">
+            <a href="index.html">
+                <div id="logo">
+                    <img src="img/Menu_Logo/bethesda_studio_logo.png" alt="" valign="bottom">
+                </div>
+            </a>
+            <ul id="blackboard">
+                <li><input type="text" name="search" value="" placeholder="Search games, news, etc."></li>
+                <li style="filter:invert(1)"><img src="img/Menu_Icon/help_icon.png" alt="Help"
+                        onclick="feedback_click()"></li>
+                <li style="filter:invert(1)"><img src="img/Menu_Icon/feedback_icon.png" alt="Help"
+                        onclick="feedback_click()"></li>
+                <li style="filter:invert(1)"><img src="img/Menu_Icon/char_icon.png" alt="Char" onclick="user_click()">
+                </li>
+            </ul>
+
+    </header>
+
+    <section>
+
+        <div id="banner">
+            <div class="banner">
+                <img src="img/banner/banner1.jpg" alt="Bethesda Banner">
+                <img src="img/banner/banner2.jpg" alt="Bethesda Banner">
+                <img src="img/banner/banner3.jpg" alt="Bethesda Banner">
+                <img src="img/banner/banner4.jpg" alt="Bethesda Banner">
+            </div>
+            <div class="banner-on"></div>
+        </div>
+        <!--User popup-->
+        <center>
+            <div id="user_popup">
+                <table id="user_popup_table">
+                    <tr>
+                        <td id="user_popup_login" class="user_button">LOG IN</td>
+                        <td id="x_user_button" onclick="x_user_button_click()">x</td>
+                        <td id="user_popup_signin" class="user_button">SIGN IN</td>
+                    </tr>
+                </table>
+            </div>
+        </center>
+        <!-- Phần bắt đầu cho Popup Feedback-->
+        <center>
+            <form action="" method="GET" onsubmit="return form_success()" id="form_success">
+                <table id="table_success">
+                    <tr>
+                        <td>
+                            <p id="username_login"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" id="submit_success" class="td_signin" value="Great!">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+        <center>
+            <form action="" method="get" id="form_popup" onsubmit="return formvalid()">
+                <table id="table_popup">
+                    <tr>
+                        <td>
+                            <div id="x_button" onclick="x_button_click()">
+                                <p>+</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table id="table_popup_horizontal">
+                                <tr>
+                                    <td class="table_col_horizontal" colspan="2">
+                                        <table id="table_popup1">
+                                            <tr>
+                                                <td><img src="img/Menu_Logo/bethesda_studio_logo.png" alt="">
+                                                </td>
+                                                <td>
+                                                    <p>Your Feedback</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table_col_horizontal">
+                                        <table id="table_popup2">
+                                            <tr>
+                                                <td colspan="3">
+                                                    <p>We would like your feedback to improve our website.</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <p>What is your opinion of this page?</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <img src="img/SVG/SVGs/angry.svg" alt="" id="icon1" class="icon">
+                                                    <img src="img/SVG/SVGs/like.svg" alt="" id="icon2" class="icon">
+                                                    <img src="img/SVG/SVGs/ya.svg" alt="" id="icon3" class="icon">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td id="opinion_wrong"></td>
+                                            </tr>
+                                        </table>
+                                        <table id="table_popup3">
+                                            <tr>
+                                                <td colspan="3">
+                                                    <p>Please select your feedback category below:</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <button id="button1" class="button" value="">Suggestion</button>
+                                                    <button id="button2" class="button" value="">Something is
+                                                        not quite right</button>
+                                                    <button id="button3" class="button" value="">Compliment</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p id="feedback_category_wrong"
+                                                        style="text-align: center; width: 100%;"></p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td class="table_col_horizontal">
+                                        <table id="table_popup4">
+                                            <tr>
+                                                <td colspan="3">
+                                                    <p>Please leave your email here, we can contact you later:
+                                                        <br> (You
+                                                        can
+                                                        leave
+                                                        it alone if
+                                                        you don't want to)</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" name="" id="email" placeholder="Email Address">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td id="email_wrong"></td>
+                                            </tr>
+                                            <td colspan="3">
+                                                <p>Please leave your feedback below:</p>
+                                            </td>
+                                            <tr>
+                                                <td id="feedback_wrong"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <textarea name="" id="feedback" cols="30" rows=5></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table_col_horizontal" colspan="2">
+                                        <table id="table_popup5">
+                                            <tr>
+                                                <td colspan="3">
+                                                    <input type="submit" name="" id="submit" value="Send">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+        </center>
+        <!-- Phần kết thúc cho Popup Feedback-->
+
+        <!--Form1-->
+        <p id="caption">CREATE A BETHESDA ACCOUNT</p>
+
+        <form action="" id="form1">
+            <table id="table1">
+                <tr>
+                    <th colspan="2">If you have an account for one of the following services, it's even easier to create
+                        a Nintendo
+                        Account.</th>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#" style="background: #ff7d00">
+                            <div class="button-mxh">
+                                <img src="img/Linked/bethesda_id.png" alt="">
+                                <p>Bethesda Network ID</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#" style="background: #3b5998">
+                            <div class="button-mxh">
+                                <img src="img/Linked/facebook.png" alt="">
+                                <p>Facebook</p>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#" style="background: #df4e42">
+                            <div class="button-mxh">
+                                <img src="img/Linked/google+.png" alt="">
+                                <p>Google +</p>
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#" style="background: #55acee">
+                            <div class="button-mxh">
+                                <img src="img/Linked/twitter.jpg" alt="">
+                                <p>Twitter</p>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <!--Form 2-->
+
+        <form action="" id="form2" name="action" action="" method="get" onsubmit="return formvalid2()">
+            <table id="table2">
+                <tr>
+                    <th colspan="2">If you don't have an account with one of the services listed above or would rather
+                        not use an
+                        existing account to create your Nintendo Account, please enter your information below.</th>
+                </tr>
+                <tr>
+                    <td><label for="username">Username</label></td>
+                    <td><input type="text" name="username" value="" id="username" placeholder="10 characters or less">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="username_wrong"></td>
+                </tr>
+                <tr>
+                    <td><label for="email1">E-mail Adress</label></td>
+                    <td>
+                        <input type="text" name="email" value="" id="email1" placeholder="E-mail adress">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="email1_wrong"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding-top: 0;">
+                        <p>
+                            *An e-mail address accessible from a PC or web browser is recommended to create your
+                            Nintendo Account.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password</label></td>
+                    <td>
+                        <input type="password" name="password" value="" id="password"
+                            placeholder="At leasts 8 characters">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="password_wrong"></td>
+                </tr>
+                <tr>
+                    <td><label for="repassword">Confirm password</label></td>
+                    <td>
+                        <input type="password" name="repassword" value="" id="repassword"
+                            placeholder="At leasts 8 characters">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="repassword_wrong"></td>
+                </tr>
+                <td></td>
+                <td style="padding-top: 0;">
+                    <p>
+                        *You can't change your date of birth later.
+                    </p>
+                </td>
+                <tr>
+                    <td><label for="">Date of birth</label></td>
+                    <td>
+                        <table id="table2-1">
+                            <tr>
+                                <td>
+                                    <select name="month" id="month">
+                                        <option value="" selected disabled>Month</option>
+                                        <script>
+                                            for (i = 1; i <= 12; i++)
+                                                document.write("<option value=" + "month" + i + ">" + i + "</option>");
+                                        </script>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="day" id="day">
+                                        <option value="" selected disabled>Day</option>
+                                        <script>
+                                            for (i = 1; i <= 31; i++)
+                                                document.write("<option value=" + "day" + i + ">" + i + "</option>");
+                                        </script>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select id="year">
+                                        <option value="" selected disabled>Year</option>
+                                        <script>
+                                            for (i = 1950; i <= 2019; i++)
+                                                document.write("<option value=" + "year" + i + ">" + i + "</option>");
+                                        </script>
+                                    </select>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" id="day_wrong"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" id="month_wrong"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" id="year_wrong"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="gender">Gender</label>
+                    </td>
+                    <td>
+                        <select name="gender" id="gender">
+                            <option value="" selected disabled>(None selected)</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="none">Choose not to answer</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="gender_wrong"></td>
+                </tr>
+                <tr>
+                    <td><label for="country">Country/region of residence</label></td>
+                    <td>
+                        <select name="country_id" id="country">
+                            <option value="" selected disabled>(None selected)</option>
+                            <option value="1">United Arab Emirates</option>
+                            <option value="2">Antigua and Barbuda</option>
+                            <option value="3">Anguilla</option>
+                            <option value="4">Albania</option>
+                            <option value="5">Armenia</option>
+                            <option value="7">Angola</option>
+                            <option value="8">Argentina</option>
+                            <option value="9">Austria</option>
+                            <option value="10">Australia</option>
+                            <option value="11">Aruba</option>
+                            <option value="12">Azerbaijan</option>
+                            <option value="13">Bosnia and Herzegovina</option>
+                            <option value="14">Barbados</option>
+                            <option value="15">Bangladesh</option>
+                            <option value="16">Belgium</option>
+                            <option value="17">Burkina Faso</option>
+                            <option value="18">Bulgaria</option>
+                            <option value="19">Bahrain</option>
+                            <option value="20">Benin</option>
+                            <option value="21">Bermuda</option>
+                            <option value="22">Brunei Darussalam</option>
+                            <option value="23">Bolivia (Plurinational State of)</option>
+                            <option value="24">Brazil</option>
+                            <option value="25">Bahamas</option>
+                            <option value="26">Bhutan</option>
+                            <option value="27">Botswana</option>
+                            <option value="28">Belarus</option>
+                            <option value="29">Belize</option>
+                            <option value="30">Canada</option>
+                            <option value="31">Congo</option>
+                            <option value="32">Switzerland</option>
+                            <option value="33">Côte d'Ivoire</option>
+                            <option value="34">Chile</option>
+                            <option value="35">Cameroon</option>
+                            <option value="36">Colombia</option>
+                            <option value="37">Costa Rica</option>
+                            <option value="38">Cape Verde</option>
+                            <option value="39">Cyprus</option>
+                            <option value="40">Czech Republic</option>
+                            <option value="41">Germany</option>
+                            <option value="42">Denmark</option>
+                            <option value="43">Dominica</option>
+                            <option value="44">Dominican Republic</option>
+                            <option value="46">Ecuador</option>
+                            <option value="47">Estonia</option>
+                            <option value="48">Egypt</option>
+                            <option value="49">Spain</option>
+                            <option value="50">Finland</option>
+                            <option value="51">Fiji</option>
+                            <option value="52">Micronesia (Federated States of)</option>
+                            <option value="53">France</option>
+                            <option value="54">Gabon</option>
+                            <option value="55">United Kingdom</option>
+                            <option value="56">Grenada</option>
+                            <option value="57">Ghana</option>
+                            <option value="58">Gambia</option>
+                            <option value="59">Greece</option>
+                            <option value="60">Guatemala</option>
+                            <option value="61">Guinea-Bissau</option>
+                            <option value="62">Guyana</option>
+                            <option value="166">Hong Kong</option>
+                            <option value="63">Honduras</option>
+                            <option value="64">Croatia</option>
+                            <option value="65">Haiti</option>
+                            <option value="66">Hungary</option>
+                            <option value="67">Indonesia</option>
+                            <option value="68">Ireland</option>
+                            <option value="69">Israel</option>
+                            <option value="70">India</option>
+                            <option value="71">Iceland</option>
+                            <option value="72">Italy</option>
+                            <option value="73">Jamaica</option>
+                            <option value="74">Jordan</option>
+                            <option value="75">Japan</option>
+                            <option value="77">Kyrgyzstan</option>
+                            <option value="78">Cambodia</option>
+                            <option value="79">Saint Kitts and Nevis</option>
+                            <option value="167">Korea (Republic of)</option>
+                            <option value="80">Kuwait</option>
+                            <option value="81">Cayman Islands</option>
+                            <option value="82">Kazakhstan</option>
+                            <option value="83">Lao People's Democratic Republic</option>
+                            <option value="84">Lebanon</option>
+                            <option value="85">Saint Lucia</option>
+                            <option value="168">Liechtenstein</option>
+                            <option value="86">Sri Lanka</option>
+                            <option value="87">Liberia</option>
+                            <option value="88">Lithuania</option>
+                            <option value="89">Luxembourg</option>
+                            <option value="90">Latvia</option>
+                            <option value="91">Morocco</option>
+                            <option value="92">Moldova (Republic of)</option>
+                            <option value="93">Madagascar</option>
+                            <option value="94">Macedonia (the former Yugoslav Republic of)</option>
+                            <option value="95">Mali</option>
+                            <option value="96">Mongolia</option>
+                            <option value="164">Macao</option>
+                            <option value="97">Mauritania</option>
+                            <option value="98">Montserrat</option>
+                            <option value="99">Malta</option>
+                            <option value="100">Mauritius</option>
+                            <option value="101">Malawi</option>
+                            <option value="102">Mexico</option>
+                            <option value="103">Malaysia</option>
+                            <option value="104">Mozambique</option>
+                            <option value="105">Namibia</option>
+                            <option value="106">Niger</option>
+                            <option value="107">Nigeria</option>
+                            <option value="108">Nicaragua</option>
+                            <option value="109">Netherlands</option>
+                            <option value="110">Norway</option>
+                            <option value="111">Nepal</option>
+                            <option value="112">New Zealand</option>
+                            <option value="113">Oman</option>
+                            <option value="114">Panama</option>
+                            <option value="115">Peru</option>
+                            <option value="116">Papua New Guinea</option>
+                            <option value="117">Philippines</option>
+                            <option value="118">Pakistan</option>
+                            <option value="119">Poland</option>
+                            <option value="120">Portugal</option>
+                            <option value="121">Palau</option>
+                            <option value="122">Paraguay</option>
+                            <option value="123">Qatar</option>
+                            <option value="124">Romania</option>
+                            <option value="125">Serbia</option>
+                            <option value="126">Russia</option>
+                            <option value="127">Rwanda</option>
+                            <option value="128">Saudi Arabia</option>
+                            <option value="129">Solomon Islands</option>
+                            <option value="130">Seychelles</option>
+                            <option value="131">Sweden</option>
+                            <option value="132">Singapore</option>
+                            <option value="133">Slovenia</option>
+                            <option value="134">Slovakia</option>
+                            <option value="135">Sierra Leone</option>
+                            <option value="136">Senegal</option>
+                            <option value="137">Suriname</option>
+                            <option value="138">São Tomé and Príncipe</option>
+                            <option value="139">El Salvador</option>
+                            <option value="140">Swaziland</option>
+                            <option value="141">Turks and Caicos Islands</option>
+                            <option value="142">Chad</option>
+                            <option value="143">Togo</option>
+                            <option value="144">Thailand</option>
+                            <option value="145">Tajikistan</option>
+                            <option value="146">Turkmenistan</option>
+                            <option value="147">Tunisia</option>
+                            <option value="148">Turkey</option>
+                            <option value="149">Trinidad and Tobago</option>
+                            <option value="165">Taiwan</option>
+                            <option value="150">Tanzania (United Republic of)</option>
+                            <option value="151">Ukraine</option>
+                            <option value="152">Uganda</option>
+                            <option value="153">United States</option>
+                            <option value="154">Uruguay</option>
+                            <option value="155">Uzbekistan</option>
+                            <option value="156">Saint Vincent and the Grenadines</option>
+                            <option value="157">Venezuela (the Bolivarian Republic of)</option>
+                            <option value="158">Virgin Islands (British)</option>
+                            <option value="169">U.S. Virgin Islands</option>
+                            <option value="159">Vietnam</option>
+                            <option value="160">Yemen</option>
+                            <option value="161">South Africa</option>
+                            <option value="162">Zambia</option>
+                            <option value="163">Zimbabwe</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="country_wrong"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table id="table2-2">
+                            <tr>
+                                <td>
+                                    <input type="checkbox" value="" checked>
+                                    <p>
+                                        I'd like to stay in touch with Bethesda via e-mail to receive
+                                        special offers, game news, and more.
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" value="" id="agreement">
+                                    <p>
+                                        I agree to the Bethesda Account User Agreement and I acknowledge that I have
+                                        read the Bethesda Privacy Policy.
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="agreement_wrong" style="text-align: center"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="submit" id="submit" value="Submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+    </section>
+
+    <footer>
+        <div id="footer">
+            <div id="footer1">
+                <!-- Footer Table 1-->
+                <table class="footer1-content">
+                    <tr>
+                        <th colspan="2">EXPLORE</th>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Home</a></td>
+                        <td><a href="#">News</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Games</a></td>
+                        <td><a href="#">Playtest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Mods</a></td>
+                        <td><a href="#">Studios</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Community</a></td>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <!-- Footer Table 2-->
+                <table class="footer1-content">
+                    <tr>
+                        <th colspan="2">MEMBER </th>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Cao Thanh Nhan</a></td>
+                        <td><a href="#">B18016</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Le Thao Nguyen</a></td>
+                        <td><a href="#">B18002</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Duong Thi Cam Thu</a></td>
+                        <td><a href="#">B18010</a></td>
+                    </tr>
+                </table>
+
+                <!-- Footer Table 3-->
+                <table class="footer1-content">
+                    <tr>
+                        <th colspan="2">LEGAL</th>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Terms of Service</a></td>
+                        <td><a href="#">Code of Conduct</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">End User License Agreements</a></td>
+                        <td><a href="#">Contact</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Privacy Policy</a></td>
+                        <td><a href="#">Corporate</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#">Legal Information</a></td>
+                        <td><a href="#">Careers</a></td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div id="footer2">
+                <div class="contact">
+                    <img class="logofooter2" src="img/Menu_Logo/bethesda_studio_logo.png" alt="Logo">
+                    <p>Contact Us</p>
+                    <p>Website Feedback</p>
+                    <ul>
+                        <li><img src="img/Linked/facebook.png" alt="facebook_logo"></li>
+                        <li><img src="img/Linked/twitter.jpg" alt="twitter"></li>
+                        <li><img src="img/Linked/youtube.png" alt="youtube"></li>
+                        <li><img src="img/Linked/instagram.jpg" alt="instagram"></li>
+
+                    </ul>
+                </div>
+                <p>© 2019 Bethesda Softworks LLC, a ZeniMax Media company. Trademarks belong to their respective owners.
+                    All
+                    Rights Reserved.</p>
+            </div>
+        </div>
+        <center>
+                <div id="member">
+                    <table class="footer1-content">
+                        <tr>
+                            <th colspan="2">MEMBER </th>
+                        </tr>
+        
+                        <tr>
+                            <td><a href="#">Cao Thanh Nhan</a></td>
+                            <td><a href="#">B18016</a></td>
+                        </tr>
+        
+                        <tr>
+                            <td><a href="#">Le Thao Nguyen</a></td>
+                            <td><a href="#">B18002</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">Duong Thi Cam Thu</a></td>
+                            <td><a href="#">B18010</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </center>
+    </footer>
+</body>
+
+</html>
